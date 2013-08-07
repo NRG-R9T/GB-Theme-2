@@ -1,11 +1,41 @@
 <!doctype html>
+	<html itemscope 
+	itemtype="http://schema.org/NewsArticle" 
+	itemid="<?php the_permalink() ?>">
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" <?php language_attributes(); ?> > <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" <?php language_attributes(); ?> > <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" <?php language_attributes(); ?> "> <![endif]-->
 <!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?> > <!--<![endif]-->   
+
+<meta itemprop="inLanguage" content="<?php language_attributes(); ?>" />
+
 <head>
+	
+	<link rel="dns-prefetch" href="//zedo.com">
+	<link rel="dns-prefetch" href="//ajax.googleapis.com">	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//apis.google.com">
+	<link rel="dns-prefetch" href="//plus.google.com">
+	<link rel="dns-prefetch" href="//google-analytics.com">
+	<link rel="dns-prefetch" href="//themes.googleusercontent.com">
+	<link rel="dns-prefetch" href="//doubleclick.net">
+	<link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
+	<link rel="dns-prefetch" href="//twitter-any.s3.amazonaws.com">
+	<link rel="dns-prefetch" href="//api.twitter.com">
+	<link rel="dns-prefetch" href="//platform.twitter.com">
+	<link rel="dns-prefetch" href="//www.facebook.com">
+	<link rel="dns-prefetch" href="//static.ak.facebook.com">
+	<link rel="dns-prefetch" href="//s-static.ak.facebook.com">
+	<link rel="dns-prefetch" href="//connect.facebook.net">
+	<link rel="dns-prefetch" href="//imgcdn.nrelate.com">
+	<link rel="dns-prefetch" href="//static.nrelate.com">
+	<link rel="dns-prefetch" href="//cloudflare.com">
+	<link rel="dns-prefetch" href="//ajax.cloudflare.com">
+	<link rel="dns-prefetch" href="//js.nrcdn.com">
+	<link rel="dns-prefetch" href="//www.slidedeck.com">
+
 	<meta charset="<?php bloginfo('charset'); ?>">
 
 	<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
@@ -34,6 +64,69 @@
 	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load.png" media="screen and (max-device-width: 320px)" />
 
 <?php wp_head(); ?>
+
+<!-- Enable G+ -->
+<?php
+if (!is_singular()) {
+    echo '<link rel="publisher" href="https://plus.google.com/u/0/103478563688345350335/" />';
+} ?>
+<!-- Enable GA -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23288080-1']);
+  _gaq.push(['gat._anonymizeIp'],['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+function trackOutboundLink(link, category, action) { 
+ 
+try { 
+_gaq.push(['_trackEvent', category , action]); 
+} catch(err){}
+ 
+setTimeout(function() {
+document.location.href = link.href;
+}, 100);
+}
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/130598692/Billboard', [960, 90], 'div-gpt-ad-1365112664264-0').addService(googletag.pubads());
+googletag.defineSlot('/130598692/Fixed_Panel', [336, 700], 'div-gpt-ad-1365112664264-1').addService(googletag.pubads());
+googletag.defineSlot('/130598692/Full_Banner', [468, 60], 'div-gpt-ad-1365112664264-2').addService(googletag.pubads());
+googletag.defineSlot('/130598692/Leaderboard', [728, 90], 'div-gpt-ad-1365112664264-3').addService(googletag.pubads());
+googletag.defineSlot('/130598692/Medium_Rectangle', [300, 250], 'div-gpt-ad-1365112664264-4').addService(googletag.pubads());
+googletag.defineSlot('/130598692/ResponsiveAd', [1, 1], 'div-gpt-ad-1365112664264-5').addService(googletag.pubads());
+googletag.defineSlot('/130598692/Wide_Skyscraper', [160, 600], 'div-gpt-ad-1365112664264-6').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
 
 </head>
 
@@ -74,11 +167,40 @@
 
 <header class="row" role="banner">
 	<div class="small-12 columns">
-		<h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
-		<h4 class="subheader"><?php bloginfo('description'); ?></h4>
+		<a href="http://greenbyte.ch/" class="th"><img src="http://greenbyte.ch/wp-content/uploads/2012/03/Greenbyte-logo-1008.png"></a>
 		<hr/>
 	</div>
 </header>
+
+
+<header class="row full-width" role="slider">
+		<div> <?php if (is_home() || is_category() || is_front_page()) {
+			echo do_shortcode( "[SlideDeck2 id=10605 ress=1]" );
+		}?> 
+		</div>	
+</header>
+
+<header class="row full-width" role="banner">
+		<?php /* Widgetized header */
+			if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Header') ) : ?><?php endif; ?>
+</header>
+
+<header>
+<div id='div-gpt-ad-1365112664264-3' style='width:728px; height:90px;' class="row full-width" role="banner">
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1365112664264-3'); });
+</script>
+</div>
+</header>
+
+<div class="row full-width" role="navigation">
+		<ul class="breadcrumbs">
+			<?php if(function_exists('bcn_display'))
+			{
+			bcn_display();
+			}?>
+		</ul>
+</div>
 
 <!-- Start the main container -->
 <section class="container" role="document">

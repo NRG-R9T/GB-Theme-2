@@ -130,3 +130,14 @@ figure.alignleft.figure {
 	float: left;
 	margin: 0 18px 18px 0;
 }
+
+.section-auto-sample-vtabs {
+  @include section-container($section-type:accordion);
+  & > section { @include section($section-type:accordion, $title-selector:".title-sample", $content-selector:".content-sample"); }
+}
+@media #{$small} {
+  .section-auto-sample-vtabs {
+    @include section-container($section-type:vertical-tabs);
+    & > section { @include section($section-type:vertical-tabs, $title-selector:".title-sample", $content-selector:".content-sample"); }
+  }
+}

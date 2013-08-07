@@ -9,14 +9,29 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header>
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		<?php reverie_entry_meta(); ?>
+		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<?php reverie_entry_meta_front(); ?>
 	</header>
-	<div class="entry-content">
-		<?php the_content('Continue reading...'); ?>
+	<div>
+<?php if (is_archive() || is_search() || is_home() || is_front-page ()) : // Only display excerpts for archives and search ?>
+	<div class="row">
+		<div class="large-5 columns">
+		  	<figure><?php the_post_thumbnail('large', array('class' => 'alignleft')); ?></figure>
+		</div>
+		<div class="large-7 columns">
+			<?php the_excerpt(); ?>
+			<a href="<?php the_permalink(); ?>" class="small button success radius" >Weiterlesen</a>
+		</div>
+	</div>
+<?php else : ?>
+	
+			<?php the_content('Weiterlesen..'); ?>
+			<a href="<?php the_permalink(); ?>" class="small button success radius" >Weiterlesen</a>
+	
+<?php endif; ?>
 	</div>
 	<footer>
-		<?php $tag = get_the_tags(); if (!$tag) { } else { ?><p><?php the_tags(); ?></p><?php } ?>
+
 	</footer>
-	<hr />
-</article>
+	<hr>
+</article>	
