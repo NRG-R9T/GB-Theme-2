@@ -1,4 +1,4 @@
-Reverie is a versatile HTML5 responsive WordPress framework based on ZURB's Foundation, brought you by Zhen Huang from ThemeFortress. If you have any questions or suggestions, please visit the support forum.
+GB-Theme is a Fork of Reverie, versatile HTML5 responsive WordPress framework based on ZURB's Foundation, brought you by Zhen Huang from ThemeFortress. If you have any questions or suggestions, please visit the support forum.
 
 ThemeFortress:
 http://themefortress.com

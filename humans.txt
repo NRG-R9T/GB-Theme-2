@@ -1,13 +1,18 @@
-/* Reverie is a versatile HTML5 responsive WordPress framework based on ZURB's Foundation. */
+/* GB-Theme-2 is a versatile HTML5 responsive WordPress theme based on ZURB's Foundation. */
 
 /* TEAM */
+Marco Rohner
+greenbyte.ch
+
+Gareth Knott
+lifetimedesigns.com
+
+/* THANKS */	
 
 Zhen Huang
 http://themefortress.com
 Twitter: @themefortress
-Reverie Framework: http://themefortress.com/reverie/
-
-/* THANKS */							
+Reverie Framework: http://themefortress.com/reverie/						
 
 ZURB Foundation
 http://foundation.zurb.com/

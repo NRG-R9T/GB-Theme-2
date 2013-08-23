@@ -1,10 +1,10 @@
 <?php
 /*
-Author: Zhen Huang
+Author: Zhen Huang / edited: Marco Rohner
 URL: http://themefortress.com/
 
 This place is much cleaner. Put your theme specific codes here,
-anything else you may wan to use plugins to keep things tidy.
+anything else you may want to use plugins to keep things tidy.
 
 */
 
@@ -28,10 +28,6 @@ require_once('lib/enqueue-sass.php'); // do all the cleaning and enqueue if you 
 */
 require_once('lib/foundation.php'); // load Foundation specific functions like top-bar
 /*
-4. lib/presstrends.php
-    - add PressTrends, tracks how many people are using Reverie
-*/
-require_once('lib/presstrends.php'); // load PressTrends to track the usage of Reverie across the web, comment this line if you don't want to be tracked
 
 /**********************
 Add theme supports
@@ -58,15 +54,15 @@ function reverie_theme_support() {
 	));
 	
 	// Add custom background support
-	add_theme_support( 'custom-background',
-	    array(
-	    'default-image' => '',  // background image default
-	    'default-color' => '', // background color default (dont add the #)
-	    'wp-head-callback' => '_custom_background_cb',
-	    'admin-head-callback' => '',
-	    'admin-preview-callback' => ''
-	    )
-	);
+	//   add_theme_support( 'custom-background',
+	//    array(
+	//    'default-image' => '',  // background image default
+	//    'default-color' => '', // background color default (dont add the #)
+	//    'wp-head-callback' => '_custom_background_cb',
+	//    'admin-head-callback' => '',
+	//    'admin-preview-callback' => ''
+	//    )
+	// );
 }
 add_action('after_setup_theme', 'reverie_theme_support'); /* end Reverie theme support */
 
@@ -76,7 +72,7 @@ foreach ($sidebars as $sidebar) {
 	register_sidebar(array('name'=> $sidebar,
 		'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
 		'after_widget' => '</div></article>',
-		'before_title' => '<h6><strong>',
+		'before_title' => '<h6 class="widget-title"><strong>',
 		'after_title' => '</strong></h6>'
 	));
 }
@@ -85,25 +81,25 @@ foreach ($sidebars as $sidebar) {
 	register_sidebar(array('name'=> $sidebar,
 		'before_widget' => '<article id="%1$s" class="large-4 columns widget %2$s">',
 		'after_widget' => '</article>',
-		'before_title' => '<h6><strong>',
+		'before_title' => '<h6 class="widget-title"><strong>',
 		'after_title' => '</strong></h6>'
 	));
-}
-$sidebars = array('Header');
-foreach ($sidebars as $sidebar) {
-    register_sidebar(array('name'=> $sidebar,
-        'before_widget' => '<header id="%1$s" class="row widget %2$s">',
-        'after_widget' => '</header>',
-        'before_title' => '<h6><strong>',
-        'after_title' => '</strong></h6>'
-    ));
 }
 $sidebars = array('PostInterface-1');
 foreach ($sidebars as $sidebar) {
     register_sidebar(array('name'=> $sidebar,
         'before_widget' => '<article id="%1$s" class="row widget %2$s">',
         'after_widget' => '</article>',
-        'before_title' => '<h6><strong>',
+		'before_title' => '<h6 class="widget-title"><strong>',
+        'after_title' => '</strong></h6>'
+    ));
+}
+$sidebars = array('Header');
+foreach ($sidebars as $sidebar) {
+    register_sidebar(array('name'=> $sidebar,
+        'before_widget' => '<header id="%1$s" class="row widget %2$s">',
+        'after_widget' => '</header>',
+		'before_title' => '<h6 class="widget-title"><strong>',
         'after_title' => '</strong></h6>'
     ));
 }
@@ -112,7 +108,7 @@ foreach ($sidebars as $sidebar) {
     register_sidebar(array('name'=> $sidebar,
         'before_widget' => '<article id="%1$s" class="row widget %2$s">',
         'after_widget' => '</article>',
-        'before_title' => '<h6><strong>',
+		'before_title' => '<h6 class="widget-title"><strong>',
         'after_title' => '</strong></h6>'
     ));
 }
@@ -198,7 +194,6 @@ function rw_post_thumbnail_html( $html, $post_id )
     return $html;
 }
 
-
 //disable wpautop filter
 remove_filter ('the_content',  'wpautop');
 
@@ -212,9 +207,7 @@ function add_iframe($atts) {
 }
 add_shortcode('iframe', 'add_iframe');
 
-//html in user bio mts
-remove_filter('pre_user_description', 'wp_filter_kses');// Do NOT remove this line. //This is to sanitize content for allowed HTML tags for post content
-add_filter( 'pre_user_description', 'wp_filter_post_kses' );
-
+require_once('wp-updates-theme.php');
+new WPUpdatesThemeUpdater( 'http://wp-updates.com/api/1/theme', 373, basename(get_template_directory()) );
 
 ?>

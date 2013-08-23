@@ -12,29 +12,14 @@
 <meta itemprop="inLanguage" content="<?php language_attributes(); ?>" />
 
 <head>
+<?php remove_custom_background() ?>
 	
 	<link rel="dns-prefetch" href="//zedo.com">
-	<link rel="dns-prefetch" href="//ajax.googleapis.com">	
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//apis.google.com">
-	<link rel="dns-prefetch" href="//plus.google.com">
-	<link rel="dns-prefetch" href="//google-analytics.com">
-	<link rel="dns-prefetch" href="//themes.googleusercontent.com">
 	<link rel="dns-prefetch" href="//doubleclick.net">
 	<link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
-	<link rel="dns-prefetch" href="//twitter-any.s3.amazonaws.com">
-	<link rel="dns-prefetch" href="//api.twitter.com">
-	<link rel="dns-prefetch" href="//platform.twitter.com">
-	<link rel="dns-prefetch" href="//www.facebook.com">
-	<link rel="dns-prefetch" href="//static.ak.facebook.com">
-	<link rel="dns-prefetch" href="//s-static.ak.facebook.com">
-	<link rel="dns-prefetch" href="//connect.facebook.net">
-	<link rel="dns-prefetch" href="//imgcdn.nrelate.com">
-	<link rel="dns-prefetch" href="//static.nrelate.com">
-	<link rel="dns-prefetch" href="//cloudflare.com">
-	<link rel="dns-prefetch" href="//ajax.cloudflare.com">
-	<link rel="dns-prefetch" href="//js.nrcdn.com">
 	<link rel="dns-prefetch" href="//www.slidedeck.com">
+
 
 	<meta charset="<?php bloginfo('charset'); ?>">
 
@@ -70,6 +55,7 @@
 if (!is_singular()) {
     echo '<link rel="publisher" href="https://plus.google.com/u/0/103478563688345350335/" />';
 } ?>
+
 <!-- Enable GA -->
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -132,15 +118,22 @@ googletag.enableServices();
 
 <body <?php body_class(); ?>>
 
-<div class="contain-to-grid">
+<header class="row" role="banner">
+	<div class="small-12 columns">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png" data-interchange="[<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (default)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-700.png, (screen and (max-width: 568px))], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (small)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (medium)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (large)]" alt="" ></a>
+		<hr/>
+	</div>
+</header>
+
+<div class="contain-to-grid sticky">
 	<!-- Starting the Top-Bar -->
 	<nav class="top-bar">
 	    <ul class="title-area">
 	        <li class="name">
-	        	<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	        	<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" alt=""><img src="<?php echo get_template_directory_uri(); ?>/img/Greenbyte-SQUARE-Logo-30.png"></a></h1>
 	        </li>
 			<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			<li class="toggle-topbar menu-icon"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" alt=""><span>MENU</span></a></li>
 	    </ul>
 	    <section class="top-bar-section">
 	    <?php
@@ -165,35 +158,48 @@ googletag.enableServices();
 	<!-- End of Top-Bar -->
 </div>
 
-<header class="row" role="banner">
-	<div class="small-12 columns">
-		<a href="http://greenbyte.ch/" class="th"><img src="http://greenbyte.ch/wp-content/uploads/2012/03/Greenbyte-logo-1008.png"></a>
-		<hr/>
+<section id="megaContainer" style="display: none;">
+<script>
+var megaDrop = $('#megaDrop');              // Variable to cache megaDrop element
+var megaContainer = $('#megaContainer');                // Variable to cache megaContainer element
+$(megaDrop).click(function() {
+    $(megaContainer).slideToggle(300,function(){
+        if ($(this).is(":hidden")) $(megaDrop).html("+");
+        else $(megaDrop).html("×");
+    });
+});
+</script>
+	<div class="row">
+		
+		<div class="large-4 columns">
+			<p>Doppelklick auf <kbd>shift</kbd> aktiviert "Emphasis". Mit der Funktion können sie Sätze oder Abschnitte mit einem einzigen Klick markieren. Danach können sie ganz einfach dahin verweisen.</p>
+		</div>
+		
+		<div class="large-4 columns">
+			<p>rising outward from twin creases above a hooked nose, and his pale brown hair grew down-from high flat temples-in a point on his forehead. He looked rather pleasantly like a blond Satan. He said to Effie Perine: "Yes, sweetheart?"</p>
+		</div>
+		
+		<div class="large-4 columns">
+			<p>She was a lanky sunburned girl whose tan dress of thin woolen stuff clung to her with an effect of dampness. Her eyes were brown and playful in a shiny boyish face.<br><br>- The Maltese Falcon</p>
+		</div>
+		
 	</div>
-</header>
 
+</section>
 
-<header class="row full-width" role="slider">
+<header class="row" role="slider">
 		<div> <?php if (is_home() || is_category() || is_front_page()) {
 			echo do_shortcode( "[SlideDeck2 id=10605 ress=1]" );
 		}?> 
 		</div>	
 </header>
 
-<header class="row full-width" role="banner">
+<header class="row" role="banner">
 		<?php /* Widgetized header */
 			if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Header') ) : ?><?php endif; ?>
 </header>
 
-<header>
-<div id='div-gpt-ad-1365112664264-3' style='width:728px; height:90px;' class="row full-width" role="banner">
-<script type='text/javascript'>
-googletag.cmd.push(function() { googletag.display('div-gpt-ad-1365112664264-3'); });
-</script>
-</div>
-</header>
-
-<div class="row full-width" role="navigation">
+<div class="row" role="navigation">
 		<ul class="breadcrumbs">
 			<?php if(function_exists('bcn_display'))
 			{

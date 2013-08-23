@@ -6,6 +6,9 @@
 // import normalize, stay at top
 @import "normalize";
 
+// Our Custom Settings
+@import "customSettings";
+
 // Global Foundation Settings
 @import "settings";
 
@@ -14,12 +17,132 @@
 
 /* Start to customize Reverie */
 
-// add some extra style to row to beautify custom background image
-header.row,
-.container.row,
-.row.full-width {
-	background-color: rgba(255,255,255,0.9);
+.top-bar {
+font-family: 'Orbitron', sans-serif;
 }
+.breadcrumbs {
+font-family: 'Orbitron', sans-serif;
+}
+.contain-to-grid {
+	width: 100%;
+	background: none;
+}
+
+.fixed {
+	width: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	height: 2.79em;
+}
+
+ul.mobile-nav li a {
+    display: block;
+    padding: 10px;
+    background: none repeat scroll 0% 0% $color20;
+    color: white;
+    border-bottom: 1px solid white;
+	font-weight: 800;
+}
+
+.gb-footer-top {
+	font-size: 14px;
+	line-height: 21px;
+	color: black;
+	margin-top: 2em;
+
+}
+
+.row.footer-nav {
+	background-color: $color1;
+}
+
+.large-6.columns.social {
+color: $color4
+}
+
+.cc-logo {
+float: right;
+margin: 0.6em;
+margin-top: -1em;
+}
+
+.source-org.copyright {
+font-size: 0.7em;
+text-align: right;
+margin-right: 110px;
+}
+
+footer.large-12.columns {
+	background: $color13;
+}
+
+.social_share_privacy {
+	clear: both;
+	margin: 0 auto;
+	width: 100%;
+	margin-bottom: 0px;
+}
+
+.section-auto-sample {
+  @include section-container($section-type:accordion);
+  & > section { @include section($section-type:accordion, $title-selector:".title", $content-selector:".content"); }
+
+  @media #{$small} {
+    @include section-container(false,$section-type:tabs);
+    & > section { @include section($section-type:tabs, $title-selector:".title", $content-selector:".content"); }
+  }
+}
+
+.section-auto-sample-vtabs {
+  @include section-container($section-type:accordion);
+  & > section { @include section($section-type:accordion, $title-selector:".title-sample", $content-selector:".content-sample"); }
+}
+@media #{$small} {
+  .section-auto-sample-vtabs {
+    @include section-container($section-type:vertical-tabs);
+    & > section { @include section($section-type:vertical-tabs, $title-selector:".title-sample", $content-selector:".content-sample"); }
+  }
+}
+
+a { color: #000; font-family: 'Orbitron', sans-serif; text-decoration: none; line-height: inherit; }
+a:hover { color: #555; text-decoration:underline }
+a:focus { color: #555; outline: none; }
+
+h3 { 
+	font-family: 'Oswald', sans-serif; 
+}
+
+.toc_number {
+	font-weight: bold;
+}
+
+.breadcrumbs {
+	display: block;
+	padding: 0.5625em 0.875em 0.5625em;
+	overflow: hidden;
+	margin-left: 0;
+	list-style: none;
+	border-width: 0px;
+	background-color: #d8d8d8;
+}
+
+.breadcrumbs>* {
+	margin: 0;
+	float: left;
+	font-size: 0.9em;
+	text-transform: uppercase;
+}
+
+blockquote h4 {
+	background-color: #d3d3d3;
+}
+
+aside#sidebar {
+	background-color: #d6d6d6;
+	padding: 2em;
+} 
 
 // adjusting header
 h4.subheader {
@@ -27,7 +150,7 @@ h4.subheader {
 }
 
 // add new pagination class for WordPress, Sass is amazingly fast
-.page-numbers { @include pagination; }
+//.page-numbers { @include pagination; }
 
 // customizing pagination for WordPress using Foundation mixins, this is not beautiful I know
 .page-numbers li {
@@ -89,7 +212,7 @@ input.prefix.button {
 	line-height: 1;
 }
 
-// adjust search button on sideba
+// adjust search button on sidebar
 #sidebar input.prefix.button {
 	line-height: 0.7;
 }
@@ -113,11 +236,15 @@ img.aligncenter {
 // Add HTML5 Caption Class for Images
 figure.figure {
 	margin: 0 auto;
-	display: inline-block;
+	display: table;
 	figcaption {
 		padding: 8px 10px;
-		color: gray;
+		color: $primary-color;
 		margin-bottom: $paragraph-margin-bottom;
+		background-color: $color13;
+		display: table-caption;
+		caption-side: bottom;
+		word-wrap: break-word;
 	}
 }
 
@@ -129,15 +256,4 @@ figure.alignright.figure {
 figure.alignleft.figure {
 	float: left;
 	margin: 0 18px 18px 0;
-}
-
-.section-auto-sample-vtabs {
-  @include section-container($section-type:accordion);
-  & > section { @include section($section-type:accordion, $title-selector:".title-sample", $content-selector:".content-sample"); }
-}
-@media #{$small} {
-  .section-auto-sample-vtabs {
-    @include section-container($section-type:vertical-tabs);
-    & > section { @include section($section-type:vertical-tabs, $title-selector:".title-sample", $content-selector:".content-sample"); }
-  }
 }

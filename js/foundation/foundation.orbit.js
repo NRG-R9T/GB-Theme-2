@@ -40,8 +40,8 @@
       slides_container.addClass(settings.slides_container_class);
       
       if (settings.navigation_arrows) {
-        container.append($('<a>').addClass(settings.prev_class).append('<span>'));
-        container.append($('<a>').addClass(settings.next_class).append('<span>'));
+        container.append($('<a href="#">').addClass(settings.prev_class).append('<span>'));
+        container.append($('<a href="#">').addClass(settings.next_class).append('<span>'));
       }
 
       if (settings.timer) {
@@ -90,7 +90,8 @@
       var next = $(slides.get(next_idx));
 
       current.css('zIndex', 2);
-      next.css('zIndex', 4).addClass('active');
+      current.removeClass(settings.active_slide_class);
+      next.css('zIndex', 4).addClass(settings.active_slide_class);
 
       slides_container.trigger('orbit:before-slide-change');
       settings.before_slide_change();
@@ -104,7 +105,7 @@
           slides_container.trigger('orbit:after-slide-change',[{slide_number: idx, total_slides: slides.length}]);
           settings.after_slide_change(idx, slides.length);
         };
-        if (slides_container.height() != next.height()) {
+        if (slides_container.height() != next.height() && settings.variable_height) {
           slides_container.animate({'height': next.height()}, 250, 'linear', unlock);
         } else {
           unlock();
@@ -118,7 +119,7 @@
         if (dir === 'prev') {animate.prev(current, next, callback);}        
       };
 
-      if (next.height() > slides_container.height()) {
+      if (next.height() > slides_container.height() && settings.variable_height) {
         slides_container.animate({'height': next.height()}, 250, 'linear', start_animation);
       } else {
         start_animation();
@@ -149,7 +150,7 @@
     self.link_bullet = function(e) {
       var index = $(this).attr('data-orbit-slide');
       if ((typeof index === 'string') && (index = $.trim(index)) != "") {
-        self._goto(index);
+        self._goto(parseInt(index));
       }
     }
 
@@ -195,51 +196,53 @@
     self.init = function() {
       self.build_markup();
       if (settings.timer) {timer = self.create_timer(); timer.start();}
-      animate = new FadeAnimation(slides_container);
+      animate = new FadeAnimation(settings, slides_container);
       if (settings.animation === 'slide') 
-        animate = new SlideAnimation(slides_container);        
+        animate = new SlideAnimation(settings, slides_container);        
       container.on('click', '.'+settings.next_class, self.next);
       container.on('click', '.'+settings.prev_class, self.prev);
       container.on('click', '[data-orbit-slide]', self.link_bullet);
       container.on('click', self.toggle_timer);
-      container.on('touchstart.fndtn.orbit', function(e) {
-        if (!e.touches) {e = e.originalEvent;}
-        var data = {
-          start_page_x: e.touches[0].pageX,
-          start_page_y: e.touches[0].pageY,
-          start_time: (new Date()).getTime(),
-          delta_x: 0,
-          is_scrolling: undefined
-        };
-        container.data('swipe-transition', data);
-        e.stopPropagation();
-      })
-      .on('touchmove.fndtn.orbit', function(e) {
-        if (!e.touches) { e = e.originalEvent; }
-        // Ignore pinch/zoom events
-        if(e.touches.length > 1 || e.scale && e.scale !== 1) return;
+      if (settings.swipe) {
+        container.on('touchstart.fndtn.orbit', function(e) {
+          if (!e.touches) {e = e.originalEvent;}
+          var data = {
+            start_page_x: e.touches[0].pageX,
+            start_page_y: e.touches[0].pageY,
+            start_time: (new Date()).getTime(),
+            delta_x: 0,
+            is_scrolling: undefined
+          };
+          container.data('swipe-transition', data);
+          e.stopPropagation();
+        })
+        .on('touchmove.fndtn.orbit', function(e) {
+          if (!e.touches) { e = e.originalEvent; }
+          // Ignore pinch/zoom events
+          if(e.touches.length > 1 || e.scale && e.scale !== 1) return;
 
-        var data = container.data('swipe-transition');
-        if (typeof data === 'undefined') {data = {};}
+          var data = container.data('swipe-transition');
+          if (typeof data === 'undefined') {data = {};}
 
-        data.delta_x = e.touches[0].pageX - data.start_page_x;
+          data.delta_x = e.touches[0].pageX - data.start_page_x;
 
-        if ( typeof data.is_scrolling === 'undefined') {
-          data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
-        }
+          if ( typeof data.is_scrolling === 'undefined') {
+            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
+          }
 
-        if (!data.is_scrolling && !data.active) {
-          e.preventDefault();
-          var direction = (data.delta_x < 0) ? (idx+1) : (idx-1);
-          data.active = true;
-          self._goto(direction);
-        }
-      })
-      .on('touchend.fndtn.orbit', function(e) {
-        container.data('swipe-transition', {});
-        e.stopPropagation();
-      })
-      .on('mouseenter.fndtn.orbit', function(e) {
+          if (!data.is_scrolling && !data.active) {
+            e.preventDefault();
+            var direction = (data.delta_x < 0) ? (idx+1) : (idx-1);
+            data.active = true;
+            self._goto(direction);
+          }
+        })
+        .on('touchend.fndtn.orbit', function(e) {
+          container.data('swipe-transition', {});
+          e.stopPropagation();
+        })
+      }
+      container.on('mouseenter.fndtn.orbit', function(e) {
         if (settings.timer && settings.pause_on_hover) {
           self.stop_timer();
         }
@@ -307,13 +310,15 @@
     };
   };
   
-  var SlideAnimation = function(container) {
-    var duration = 400;
+  var SlideAnimation = function(settings, container) {
+    var duration = settings.animation_speed;
     var is_rtl = ($('html[dir=rtl]').length === 1);
     var margin = is_rtl ? 'marginRight' : 'marginLeft';
+    var animMargin = {};
+    animMargin[margin] = '0%';
 
     this.next = function(current, next, callback) {
-      next.animate({margin: '0%'}, duration, 'linear', function() {
+      next.animate(animMargin, duration, 'linear', function() {
         current.css(margin, '100%');
         callback();
       });
@@ -321,15 +326,15 @@
 
     this.prev = function(current, prev, callback) {
       prev.css(margin, '-100%');
-      prev.animate({margin:'0%'}, duration, 'linear', function() {
+      prev.animate(animMargin, duration, 'linear', function() {
         current.css(margin, '100%');
         callback();
       });
     };
   };
 
-  var FadeAnimation = function(container) {
-    var duration = 250;
+  var FadeAnimation = function(settings, container) {
+    var duration = settings.animation_speed;
 
     this.next = function(current, next, callback) {
       next.css({'marginLeft':'0%', 'opacity':'0.01'});
@@ -382,6 +387,7 @@
       bullets: true,
       timer: true,
       variable_height: false,
+      swipe: true,
       before_slide_change: noop,
       after_slide_change: noop
     },
