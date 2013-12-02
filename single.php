@@ -37,6 +37,9 @@
 			</header>
 			<div class="article_text" itemprop="articleBody">
 				<?php the_content(); ?>
+			<?php zemanta_related_posts()?>
+			<?php if(function_exists('echo_ald_wherego')) echo_ald_wherego(); ?>
+
 				<section id="widget" class="small-11 small-centered columns">
 				<?php 
 				if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('BelowPost') ) : ?><?php endif; ?>

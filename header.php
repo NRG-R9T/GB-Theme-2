@@ -17,7 +17,7 @@
 	<link rel="dns-prefetch" href="//zedo.com">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//doubleclick.net">
-	<link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
+	<link rel="dns-prefetch" href="//google-analytics.com/">
 	<link rel="dns-prefetch" href="//www.slidedeck.com">
 
 
@@ -102,13 +102,10 @@ node.parentNode.insertBefore(gads, node);
 
 <script type='text/javascript'>
 googletag.cmd.push(function() {
-googletag.defineSlot('/130598692/Billboard', [960, 90], 'div-gpt-ad-1365112664264-0').addService(googletag.pubads());
-googletag.defineSlot('/130598692/Fixed_Panel', [336, 700], 'div-gpt-ad-1365112664264-1').addService(googletag.pubads());
-googletag.defineSlot('/130598692/Full_Banner', [468, 60], 'div-gpt-ad-1365112664264-2').addService(googletag.pubads());
 googletag.defineSlot('/130598692/Leaderboard', [728, 90], 'div-gpt-ad-1365112664264-3').addService(googletag.pubads());
 googletag.defineSlot('/130598692/Medium_Rectangle', [300, 250], 'div-gpt-ad-1365112664264-4').addService(googletag.pubads());
-googletag.defineSlot('/130598692/ResponsiveAd', [1, 1], 'div-gpt-ad-1365112664264-5').addService(googletag.pubads());
-googletag.defineSlot('/130598692/Wide_Skyscraper', [160, 600], 'div-gpt-ad-1365112664264-6').addService(googletag.pubads());
+googletag.defineSlot('/130598692/Wide_Skyscraper', [[336,700],[160,600]], 'div-gpt-ad-1365112664264-6').addService(googletag.pubads());
+googletag.defineSlot('/130598692/Full_Banner', [468, 60], 'div-gpt-ad-1365112664264-2').addService(googletag.pubads());
 googletag.pubads().enableSingleRequest();
 googletag.enableServices();
 });
@@ -118,12 +115,12 @@ googletag.enableServices();
 
 <body <?php body_class(); ?>>
 
-<header class="row" role="banner">
+<div class="row" role="banner">
 	<div class="small-12 columns">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png" data-interchange="[<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (default)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-700.png, (screen and (max-width: 568px))], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (small)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (medium)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (large)]" alt="" ></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png" data-interchange="[<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (default)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-logo-700.png, (screen and (max-width: 568px))], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (small)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (medium)], [<?php echo get_template_directory_uri(); ?>/img/GREENbyte-Logo-Stripe.png, (large)]" alt="" ></a>
 		<hr/>
 	</div>
-</header>
+</div>
 
 <div class="contain-to-grid sticky">
 	<!-- Starting the Top-Bar -->
@@ -158,55 +155,30 @@ googletag.enableServices();
 	<!-- End of Top-Bar -->
 </div>
 
-<section id="megaContainer" style="display: none;">
-<script>
-var megaDrop = $('#megaDrop');              // Variable to cache megaDrop element
-var megaContainer = $('#megaContainer');                // Variable to cache megaContainer element
-$(megaDrop).click(function() {
-    $(megaContainer).slideToggle(300,function(){
-        if ($(this).is(":hidden")) $(megaDrop).html("+");
-        else $(megaDrop).html("×");
-    });
-});
-</script>
-	<div class="row">
-		
-		<div class="large-4 columns">
-			<p>Doppelklick auf <kbd>shift</kbd> aktiviert "Emphasis". Mit der Funktion können sie Sätze oder Abschnitte mit einem einzigen Klick markieren. Danach können sie ganz einfach dahin verweisen.</p>
-		</div>
-		
-		<div class="large-4 columns">
-			<p>rising outward from twin creases above a hooked nose, and his pale brown hair grew down-from high flat temples-in a point on his forehead. He looked rather pleasantly like a blond Satan. He said to Effie Perine: "Yes, sweetheart?"</p>
-		</div>
-		
-		<div class="large-4 columns">
-			<p>She was a lanky sunburned girl whose tan dress of thin woolen stuff clung to her with an effect of dampness. Her eyes were brown and playful in a shiny boyish face.<br><br>- The Maltese Falcon</p>
-		</div>
-		
-	</div>
 
-</section>
-
-<header class="row" role="slider">
+<div class="row" role="slider">
 		<div> <?php if (is_home() || is_category() || is_front_page()) {
 			echo do_shortcode( "[SlideDeck2 id=10605 ress=1]" );
 		}?> 
 		</div>	
-</header>
+</div>
 
-<header class="row" role="banner">
+<div class="row" role="banner">
 		<?php /* Widgetized header */
 			if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Header') ) : ?><?php endif; ?>
-</header>
+</div>
 
-<div class="row" role="navigation">
+
+
+
+<nav class="row" role="navigation">
 		<ul class="breadcrumbs">
 			<?php if(function_exists('bcn_display'))
 			{
 			bcn_display();
 			}?>
 		</ul>
-</div>
+</nav>
 
 <!-- Start the main container -->
 <section class="container" role="document">

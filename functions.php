@@ -66,6 +66,13 @@ function reverie_theme_support() {
 }
 add_action('after_setup_theme', 'reverie_theme_support'); /* end Reverie theme support */
 
+// remove the sticky class from the post to fix sticky topbar conflict - post still stick to top - https://github.com/zurb/foundation/pull/1494
+function remove_sticky_class($classes) {
+  $classes = array_diff($classes, array("sticky"));
+  return $classes;
+}
+add_filter('post_class','remove_sticky_class');
+
 // create widget areas: sidebar, footer
 $sidebars = array('Sidebar');
 foreach ($sidebars as $sidebar) {
@@ -207,7 +214,6 @@ function add_iframe($atts) {
 }
 add_shortcode('iframe', 'add_iframe');
 
-require_once('wp-updates-theme.php');
-new WPUpdatesThemeUpdater( 'http://wp-updates.com/api/1/theme', 373, basename(get_template_directory()) );
+
 
 ?>

@@ -1,4 +1,4 @@
-/* Welcome and glad you are using Reverie.
+/*! Welcome and glad you are using Reverie.
  * This is the main stylesheet loaded by default.
  * Edit the file and have fun.
  * http://themefortress.com/reverie */
@@ -20,6 +20,7 @@
 .top-bar {
 font-family: 'Orbitron', sans-serif;
 }
+
 .breadcrumbs {
 font-family: 'Orbitron', sans-serif;
 }
@@ -37,6 +38,57 @@ font-family: 'Orbitron', sans-serif;
 	height: 2.79em;
 }
 
+a { color: #000; font-weight:bold; text-decoration: none; line-height: inherit; }
+a:hover { color: #555; font-weight:bold; text-decoration:underline }
+a:focus { color: #555; font-weight:bold; outline: none; }
+
+
+
+h3 { 
+	font-family: 'Oswald', sans-serif; 
+}
+
+aside#sidebar {
+	background-color: #d6d6d6;
+	padding: 2em;
+} 
+
+.breadcrumbs {
+	display: block;
+	padding: 0.5625em 0.875em 0.5625em;
+	overflow: hidden;
+	margin-left: 0;
+	list-style: none;
+	border-width: 0px;
+	background-color: #d8d8d8;
+}
+
+.breadcrumbs>* {
+	margin: 0;
+	float: left;
+	font-size: 0.9em;
+	text-transform: uppercase;
+}
+
+blockquote h4 {
+	background-color: #d3d3d3;
+}
+
+.toc_number {
+	font-weight: bold;
+}
+
+.alert-box.success {
+background-color: #CFFD40;
+border-color: #b5ee02;
+color: black;
+}
+
+.label.success.radius {
+color: #555;
+}
+
+
 ul.mobile-nav li a {
     display: block;
     padding: 10px;
@@ -47,7 +99,8 @@ ul.mobile-nav li a {
 }
 
 .gb-footer-top {
-	font-size: 14px;
+	font-family: Arial;
+	font-size: 0.9em;
 	line-height: 21px;
 	color: black;
 	margin-top: 2em;
@@ -78,71 +131,23 @@ footer.large-12.columns {
 	background: $color13;
 }
 
-.social_share_privacy {
-	clear: both;
-	margin: 0 auto;
-	width: 100%;
-	margin-bottom: 0px;
+.adwrapper {
+margin-bottom: 0.25em;
 }
 
-.section-auto-sample {
-  @include section-container($section-type:accordion);
-  & > section { @include section($section-type:accordion, $title-selector:".title", $content-selector:".content"); }
-
-  @media #{$small} {
-    @include section-container(false,$section-type:tabs);
-    & > section { @include section($section-type:tabs, $title-selector:".title", $content-selector:".content"); }
-  }
+.Anzeige {
+font-family: 'Orbitron', sans-serif;
+font-weight: bold;
+display: inline-block;
+margin: 1em 0;
 }
 
-.section-auto-sample-vtabs {
-  @include section-container($section-type:accordion);
-  & > section { @include section($section-type:accordion, $title-selector:".title-sample", $content-selector:".content-sample"); }
-}
-@media #{$small} {
-  .section-auto-sample-vtabs {
-    @include section-container($section-type:vertical-tabs);
-    & > section { @include section($section-type:vertical-tabs, $title-selector:".title-sample", $content-selector:".content-sample"); }
-  }
+.wmuns {
+display: inline-block;
+margin: 1em 0 .75em 6.5em;
 }
 
-a { color: #000; font-family: 'Orbitron', sans-serif; text-decoration: none; line-height: inherit; }
-a:hover { color: #555; text-decoration:underline }
-a:focus { color: #555; outline: none; }
 
-h3 { 
-	font-family: 'Oswald', sans-serif; 
-}
-
-.toc_number {
-	font-weight: bold;
-}
-
-.breadcrumbs {
-	display: block;
-	padding: 0.5625em 0.875em 0.5625em;
-	overflow: hidden;
-	margin-left: 0;
-	list-style: none;
-	border-width: 0px;
-	background-color: #d8d8d8;
-}
-
-.breadcrumbs>* {
-	margin: 0;
-	float: left;
-	font-size: 0.9em;
-	text-transform: uppercase;
-}
-
-blockquote h4 {
-	background-color: #d3d3d3;
-}
-
-aside#sidebar {
-	background-color: #d6d6d6;
-	padding: 2em;
-} 
 
 // adjusting header
 h4.subheader {
@@ -150,7 +155,7 @@ h4.subheader {
 }
 
 // add new pagination class for WordPress, Sass is amazingly fast
-//.page-numbers { @include pagination; }
+.page-numbers { @include pagination; }
 
 // customizing pagination for WordPress using Foundation mixins, this is not beautiful I know
 .page-numbers li {
@@ -256,4 +261,33 @@ figure.alignright.figure {
 figure.alignleft.figure {
 	float: left;
 	margin: 0 18px 18px 0;
+}
+
+
+.social_share_privacy {
+	clear: both;
+	margin: 0 auto;
+	width: 100%;
+	margin-bottom: 0px;
+}
+
+.section-auto-sample {
+  @include section-container($section-type:accordion);
+  & > section { @include section($section-type:accordion, $title-selector:".title", $content-selector:".content"); }
+
+  @media #{$small} {
+    @include section-container(false,$section-type:tabs);
+    & > section { @include section($section-type:tabs, $title-selector:".title", $content-selector:".content"); }
+  }
+}
+
+.section-auto-sample-vtabs {
+  @include section-container($section-type:accordion);
+  & > section { @include section($section-type:accordion, $title-selector:".title-sample", $content-selector:".content-sample"); }
+}
+@media #{$small} {
+  .section-auto-sample-vtabs {
+    @include section-container($section-type:vertical-tabs);
+    & > section { @include section($section-type:vertical-tabs, $title-selector:".title-sample", $content-selector:".content-sample"); }
+  }
 }

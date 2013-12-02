@@ -5,16 +5,7 @@
 	<?php dynamic_sidebar("Footer"); ?>
 </div>
 
-<div class="show-for-small">
-  <ul class="mobile-nav">
-    <li><a href="/Werbung">Werbung</a></li>
-    <li><a href="/Impressum">Impressum</a></li>
-    <li><a href="/Feedback">Feedback</a></li>
-	<li><a href="/Verlag">Verlag</a></li>
-    <li><a href="/Sitemap">Sitemap</a></li>
-  </ul>
-  	<?php the_widget( 'simple-social-icons', array(), array( 'before_title' => '<h4 class="widgettitle">','after_title' => '</h4>' ) ); ?>
-</div>
+
 
 <div class="row">
 <footer class="large-12 columns" role="contentinfo">
@@ -47,7 +38,7 @@
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
 						<form action="http://greenbyte.us2.list-manage.com/subscribe/post?u=0f0529906cc6a4793f8935daf&amp;id=a4e945666a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-							<label for="mce-EMAIL">Zusatzlich liefern wir ihnen Updates per E-Mail, jeweils Dienstags und Freitags!</label>
+							<label for="mce-EMAIL">Zusätzlich liefern wir ihnen Updates per E-Mail, jeweils Dienstags und Freitags!</label>
 							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="E-Mail-Adresse für Newsletter" required>
 							<div class="clear"><input type="submit" value="Einschreiben" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 						</form>
@@ -60,7 +51,17 @@
 </footer>
 </div>
 
-	<div class="row footer-nav">
+<div class="show-for-small">
+  <ul class="mobile-nav">
+    <li><a href="/Werbung">Werbung</a></li>
+    <li><a href="/Impressum">Impressum</a></li>
+    <li><a href="/Feedback">Feedback</a></li>
+	<li><a href="/Verlag">Verlag</a></li>
+    <li><a href="/Sitemap">Sitemap</a></li>
+  </ul>
+</div>
+
+<div class="row footer-nav">
 		<div class="gb-footer-bottom">
 			<div class="hide-for-small">
 				<div class="large-6 columns" role="navigation">
@@ -79,7 +80,6 @@
 				</div>
 				<a itemprop="copyrightNotice" rel="item-license" rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/ch/" onClick="trackOutboundLink(this, 'Outbound Links', 'Creative Commons Licence Footer'); return false;" target="_blank"><img alt="Creative Commons Lizenzvertrag" class="cc-logo" src="<?php echo get_template_directory_uri(); ?>/img/CreativeCommons.png" /></a><br />
 
-				<?php the_widget( 'simple-social-icons', array(), array( 'before_title' => '<h4 class="widgettitle">','after_title' => '</h4>' ) ); ?>
 			</div>
 		</div>
 	</div>
