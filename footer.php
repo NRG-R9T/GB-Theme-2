@@ -11,10 +11,10 @@
 <footer class="large-12 columns" role="contentinfo">
 	<div class="gb-footer-top">
 		<div class="row">
-			<div class="large-3 columns show-for-medium-up">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/GREENbyte-logo-700.png"></a>
+			<div class="large-3 columns">
+				<a href="http://greenbyte.ch/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="http://greenbyte.ch/wp-content/themes/GB-Theme-2/img/GREENbyte-logo-700.png"></a>
 				
-				<p><strong>Greenbyte.ch orientiert über den nachhaltigen Nutzen und die Missstände von IT für wirtschaftlich denkende Menschen.</p></strong> 
+				<p><strong>Nachhaltigkeit braucht Informatik.<tr></tr> Informatik braucht Nachhaltigkeit.</p></strong> 
 
 			</div>	
 			<div class="large-3 columns">
@@ -34,16 +34,16 @@
 			<div class="large-3 columns">	
 				<div class="panel">
 					<h4>Service</h4>
-						<a href="http://greenbyte.ch/feed"><img src="http://greenbyte.ch/wp-content/uploads/rssfeed30.jpg" alt="RSS-Feed-Link"/></a><a href="http://greenbyte.ch/feed">&nbsp;Live-Update via RSS.</a><br>
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
 						<form action="http://greenbyte.us2.list-manage.com/subscribe/post?u=0f0529906cc6a4793f8935daf&amp;id=a4e945666a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-							<label for="mce-EMAIL">Zusätzlich liefern wir ihnen Updates per E-Mail, jeweils Dienstags und Freitags!</label>
-							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="E-Mail-Adresse für Newsletter" required>
+							<label for="mce-EMAIL"></label>
+							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Updates per E-Mail: Dienstag & Freitag" required>
 							<div class="clear"><input type="submit" value="Einschreiben" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 						</form>
 						</div>
 						<!--End mc_embed_signup-->	
+						<a href="http://greenbyte.ch/feed"><img src="http://greenbyte.ch/wp-content/uploads/rssfeed30.jpg" alt="RSS-Feed-Link"/></a><a href="http://greenbyte.ch/feed">&nbsp;Live-Update via RSS.</a><br>
 				</div>						
 			</div>
 		</div>
@@ -78,13 +78,17 @@
 						 <span itemprop="name">Greenbyte.ch</span>
 					</span><span itemprop="copyrightYear">2011-<?php echo date('Y'); ?><br>Some rights reserved</span> <a itemprop="usageTerms" xmlns:cc="http://creativecommons.org/ns#" href=""http://greenbyte.ch/impressum#Organization"" rel="cc:morePermissions"></a>
 				</div>
-				<a itemprop="copyrightNotice" rel="item-license" rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/ch/" onClick="trackOutboundLink(this, 'Outbound Links', 'Creative Commons Licence Footer'); return false;" target="_blank"><img alt="Creative Commons Lizenzvertrag" class="cc-logo" src="<?php echo get_template_directory_uri(); ?>/img/CreativeCommons.png" /></a><br />
+				<a itemprop="copyrightNotice" rel="item-license" rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/ch/" onClick="trackOutboundLink(this, 'Outbound Links', 'Creative Commons Licence Footer'); return false;" target="_blank"><img alt="Creative Commons Lizenzvertrag" class="cc-logo" src="http://greenbyte.ch/wp-content/themes/GB-Theme-2/img/CreativeCommons.png" /></a><br />
 
 			</div>
 		</div>
 	</div>
 
-
+<div class="row" style="text-align: center">
+<footer class="small-9 small-centered columns">
+<a rel="" href="http://www.rackspace.com/de/?CMP=GB" onClick="trackOutboundLink(this, 'Outbound Links', 'racker-logo'); return false;" target="_blank"><img alt="Powered by Rackspace" class="racker-logo" src="http://greenbyte.ch/wp-content/uploads/2013/12/RS_PoweredBy_OCC_logo-2c-e1387285241241.png" /></a>
+</footer>
+</div>
 
 <?php wp_footer(); ?>
 
@@ -93,6 +97,56 @@
 		$(document).foundation();
 	})(jQuery);
 </script>
+
+<!-- Piwik -->
+<script type="text/javascript"> 
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://data.greenbyte.ch/piwik//";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+
+</script>
+<noscript><p><img src="http://data.greenbyte.ch/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+<!-- Enable GA -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23288080-1']);
+  _gaq.push(['gat._anonymizeIp'],['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+function trackOutboundLink(link, category, action) { 
+ 
+try { 
+_gaq.push(['_trackEvent', category , action]); 
+} catch(err){}
+ 
+setTimeout(function() {
+document.location.href = link.href;
+}, 100);
+}
+</script>
+
+<noscript>
+<!-- Piwik Image Tracker -->
+<img src="http://data.greenbyte.ch/piwik/piwik.php?idsite=1&amp;rec=1&action_name=greenbyte.ch" style="border:0" alt="" />
+<!-- End Piwik -->
+</noscript>
 	
 </body>
 </html>

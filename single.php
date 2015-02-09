@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
 <!-- Row for main content area -->
+	<html itemscope 
+	itemtype="http://schema.org/NewsArticle" 
+	itemid="<?php the_permalink() ?>">
+	
 	<div class="small-12 large-8 columns" role="main">
 	
 	<?php /* Start loop */ ?>
@@ -10,12 +14,12 @@
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
 				<h1 itemprop="headline" class="headline"><?php the_title(); ?></h1>
+				<?php reverie_entry_meta(); ?>
 				<div class="section-auto-sample-vtabs" data-section="vertical-tabs">
 				  <section>
 					<p class="title-sample" data-section-title><a href="#section1">Info</a></p>
 					<div class="content-sample" data-slug="section1" data-section-content>
-					  <?php reverie_entry_meta(); ?>
-					  <?php wwsgd_the_message(); ?>
+					   <?php wwsgd_the_message(); ?>
 					</div>
 				  </section>
 				  <section>

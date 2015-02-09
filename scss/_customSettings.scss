@@ -80,9 +80,6 @@ $em-base: 16 !default;
 
 $default-float: left;
 
-// Google Web Fonts Collection - http://www.google.com/fonts#UsePlace:use/Collection:Merriweather|Orbitron:900|Oswald:300
-@import url(http://fonts.googleapis.com/css?family=Merriweather|Orbitron:900|Oswald:300);
-
 // Color Standard 1 - http://colourco.de/monochrome-dark/4/%23bfff00
 $color1: #3F3F3F;	//secondary-color
 $color2: #5F5F5F;	//primary-color
@@ -102,15 +99,13 @@ $color21: #5e7c03;
 
 $body-bg: $color15;
 $body-font-color: black;
-$body-font-family: Merriweather, sans-serif;
+$body-font-family: Merriweather, serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
-
-
 // Font-smoothing
 
-$font-smoothing: antialiased;
+// $font-smoothing: antialiased;
 
 // Text direction settings
 
@@ -148,7 +143,7 @@ $include-html-button-classes: $include-html-classes;
 // $include-html-custom-form-classes: $include-html-classes;
 $include-html-media-classes: $include-html-classes;
 $include-html-section-classes: $include-html-classes;
-// $include-html-orbit-classes: $include-html-classes;
+$include-html-orbit-classes: $include-html-classes;
 // $include-html-reveal-classes: $include-html-classes;
 // $include-html-joyride-classes: $include-html-classes;
 // $include-html-clearing-classes: $include-html-classes;
@@ -164,7 +159,7 @@ $include-html-panel-classes: $include-html-classes;
 
 // Media Queries
 
-// $small-screen: 768px;
+$small-screen: 820px;
 // $medium-screen: 1280px;
 // $large-screen: 1440px;
 
@@ -211,8 +206,8 @@ $row-width: emCalc(1280);
 
 // Control header font styles
 
-$header-font-family: 'Orbitron', sans-serif;
-// $header-font-weight: 900;
+$header-font-family: 'lato', sans-serif;
+$header-font-weight: 300;
 // $header-font-style: normal;
 $header-font-color: black;
 // $header-line-height: 1.4;
@@ -223,11 +218,11 @@ $header-font-color: black;
 
 // Control header font sizes
 
-$h1-font-size: emCalc(44);
-$h2-font-size: emCalc(28);
-$h3-font-size: emCalc(24);
-$h4-font-size: emCalc(14);
-$h5-font-size: emCalc(12);
+$h1-font-size: emCalc(42);
+$h2-font-size: emCalc(34);
+$h3-font-size: emCalc(26);
+$h4-font-size: emCalc(18);
+$h5-font-size: emCalc(16);
 $h6-font-size: 1em;
 
 // Control how subheaders are styled.
@@ -240,7 +235,7 @@ $h6-font-size: 1em;
 
 // A general <small> styling
 
-// $small-font-size: 70%;
+$small-font-size: 75%;
 // $small-font-color: lighten($header-font-color, 30%);
 
 // Style paragraphs
@@ -276,7 +271,7 @@ $hr-margin: emCalc(20);
 
 // Style lists
 
-// $list-style-position: outside;
+$list-style-position: inside;
 // $list-side-margin: 0;
 // $list-nested-margin: emCalc(20);
 // $definition-list-header-weight: bold;
@@ -290,7 +285,7 @@ $blockquote-background-color: $color2;
 $blockquote-font-color: lighten($header-font-color, 30%);
 // $blockquote-padding: emCalc(9, 20, 0, 19);
 $blockquote-border: 3px solid $color20;
-// $blockquote-cite-font-size: emCalc(13);
+$blockquote-cite-font-size: emCalc(24);
 // $blockquote-cite-font-color: lighten($header-font-color, 20%);
 // $blockquote-cite-link-color: $blockquote-cite-font-color;
 
@@ -597,7 +592,7 @@ $crumb-font-color: $primary-color;
 $crumb-font-color-current: #555;
 // $crumb-font-color-unavailable: #999;
 $crumb-font-transform: uppercase;
-$crumb-link-decor: underline;
+$crumb-link-decor: none;
 
 // We use these to control the slash between breadcrumbs
 
@@ -858,10 +853,10 @@ $keystroke-border-style: none;
 
 // We use these to control the caption styles
 
-// $orbit-container-bg: #f5f5f5;
+$orbit-container-bg: #f5f5f5;
 // $orbit-caption-bg-old: rgb(0,0,0);
 // $orbit-caption-bg: rgba(0,0,0,0.6);
-// $orbit-caption-font-color: #fff;
+$orbit-caption-font-color: #BEFB03;
 
 // We use these to control the left/right nav styles
 
@@ -876,18 +871,18 @@ $keystroke-border-style: none;
 // We use these to control the bullet nav styles
 
 // $orbit-bullet-nav-color: #999;
-// $orbit-bullet-nav-color-active: #555;
+$orbit-bullet-nav-color-active: #BEFB03;
 
 // We use thes to controls the style of slide numbers
 
-// $orbit-slide-number-bg: rgba(0,0,0,0);
-// $orbit-slide-number-font-color: #fff;
+$orbit-slide-number-bg: rgba(0,0,0,0.6);
+$orbit-slide-number-font-color: #BEFB03;
 // $orbit-slide-number-padding: emCalc(5px);
 
 // Graceful Loading Wrapper and preloader
 
-// $wrapper-class: "slideshow-wrapper";
-// $preloader-class: "preloader";
+$wrapper-class: "slideshow-wrapper";
+$preloader-class: "preloader";
 
 //
 // Pagination Variables
@@ -1286,7 +1281,7 @@ $thumb-border-style: none;
 // Top Bar Variables
 //
 
-$topbar-font-family: 'Orbitron', sans-serif;
+// $topbar-font-family: 'lato', sans-serif;
 
 // Background color for the top bar
 

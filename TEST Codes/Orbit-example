@@ -1,0 +1,100 @@
+<div class="slideshow-wrapper">
+  <div class="preloader"></div>
+  <ul class="feature-slider" data-orbit data-options="animation:slide;
+                    timer_speed: 15000;
+                    animation_speed:800;
+                    pause_on_hover:true;
+                    slide_number: false;
+                    navigation_arrows:true;
+                    bullets:false;
+                    next_on_click:false;">
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-101.jpg" alt="slide 1" />
+      <div class="orbit-caption">
+        <h2>Swisscom-RZ in Bern-Wankdorf eröffnet im Oktober 2014</h2>
+        Swisscom stellt in Bern eines der grünsten Rechenzentren Europas fertig. Das 100 Millionen Franken teure Grossprojekt bezieht bis 4,2 Megawatt Leistung für die Swisscom-Cloud.
+      </div>
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-102.jpg" alt="slide 2" />
+      <div class="orbit-caption">
+        <h2>Geschäftsmodell für Smart Grids</h2>
+        Im Forschungsprojekt «Biz Grid» von Swisselectric Research wurde die Wirtschaftlichkeit von intelligenten Stromverteilnetzen untersucht.
+      </div>
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2013/10/VMware-2013-Showfloor-zoom.jpg" alt="slide 2" />
+      <div class="orbit-caption">
+        <h2>Kommentar zur VMworld 2013: Druck der Konkurrenz fordert VMware mehr den je</h2>
+        
+      </div>
+    </li>
+    <li>
+      <img src="https://lh5.googleusercontent.com/-XLXN9CF8_Os/Upx2Gwpg8eI/AAAAAAAAEn4/HRiIlfz4vLY/w927-h576-no/ISS1.jpg" alt="slide 3" />
+      <div class="orbit-caption">
+        <h2>Kühlen mit heissem Wasser – eine Schweizer Erfindung</h2>
+        Physik erklärt uns Dinge, die gegen den gesunden Menschenverstand verstossen. Ein Beispiel ist, Computer mit heissem Wasser zu kühlen. Das erste Grossprojekt mit der Schweizer Erfindung hätte fast in Zürich gestanden.
+      </div>
+    </li>
+  </ul>
+<div>
+
+------
+color: #BEFB03;
+<ul class="example-orbit-content" data-orbit>
+  <li data-orbit-slide="headline-1">
+    <div>
+      <h2>Headline 1</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-2">
+    <div>
+      <h2>Headline 2</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-3">
+    <div>
+      <h2>Headline 3</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+</ul>
+---------------
+<div class="slideshow-wrapper">
+  <ul class="feature-slider" data-orbit data-options="animation:slide;
+                    timer_speed: 10000;
+                    animation_speed:1000;
+                    pause_on_hover:true;
+                    navigation_arrows:true;
+                    bullets:false;
+                    next_on_click:false;">
+    <li>
+      <img src="https://lh5.googleusercontent.com/-XLXN9CF8_Os/Upx2Gwpg8eI/AAAAAAAAEn4/HRiIlfz4vLY/w927-h576-no/ISS1.jpg" alt="slide 3" />
+      <?php get_the_image( array( 'meta_key' => 'feature_img', 'size' => 'medium', 'image_class' => 'feature' ) ); ?>
+      
+      <div class="orbit-caption">
+      <h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+
+      </div>    
+    </li>
+  </ul>
+<div>
+
+
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+  
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  
+      <?php get_the_image( array( 'meta_key' => 'feature_img', 'size' => 'medium', 'width' => '200', 'height' => '200', 'image_class' => 'feature' ) ); ?>
+  
+      <h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+  
+      <div class="entry-summary">
+        <?the_excerpt(); ?>
+      </div>
+  
+    </div>
+  
+  <?php endwhile; endif; ?>

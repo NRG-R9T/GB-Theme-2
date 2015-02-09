@@ -1,0 +1,20 @@
+	// Add equal sizes for Orbit Feature Slider
+	add_image_size( 'orbit-feature-large', 1280, 540, true ); // Hard Crop Mode
+	add_image_size( 'orbit-feature', 640, 270, true ); // Hard Crop Mode
+
+	// Add Orbit images to media library options
+	add_filter( 'image_size_names_choose', 'custom_image_sizes_choose' );  
+function custom_image_sizes_choose( $sizes ) {  
+    $custom_sizes = array(  
+        'orbit-feature' => 'Featured'  
+    );  
+    return array_merge( $sizes, $custom_sizes );  
+}  
+
+	add_filter( 'image_size_names_choose', 'custom_image_sizes_choose' );  
+function custom_image_sizes_choose( $sizes ) {  
+    $custom_sizes = array(  
+        'orbit-feature-large' => 'Featured Large'  
+    );  
+    return array_merge( $sizes, $custom_sizes );  
+}  

@@ -1,0 +1,36 @@
+<div class="slideshow-wrapper">
+  <div class="preloader"></div>
+  <ul class="feature-slider" data-orbit data-options="animation:slide;
+                    timer_speed: 15000;
+                    animation_speed:800;
+                    pause_on_hover:true;
+                    slide_number:true;
+                    navigation_arrows:true;
+                    bullets:false;
+                    next_on_click:false;">
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-101.jpg" alt="Swisscom RZ Bern-Wankdorf 2014" />
+      <div class="orbit-caption">
+        Bildstrecke zum Swisscom-RZ in Bern-Wankdorf Erstausbau
+      </div>
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-102.jpg" alt="Swisscom RZ Bern-Wankdorf 2014" />
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-103.jpg" alt="Swisscom RZ Bern-Wankdorf 2014" />
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-104.jpg" alt="Swisscom RZ Bern-Wankdorf 2014" />
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-105.jpg" alt="Swisscom RZ Bern-Wankdorf 2014" />
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-106.jpg" alt="Swisscom RZ Bern-Wankdorf 2014" />
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2014/01/Swisscom-RZ-Bern-2014-107.jpg" alt="Swisscom RZ Bern-Wankdorf 2014" />
+    </li>
+  </ul>
+<div>

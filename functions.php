@@ -38,6 +38,10 @@ function reverie_theme_support() {
 	
 	// Add post thumbnail supports. http://codex.wordpress.org/Post_Thumbnails
 	add_theme_support('post-thumbnails');
+
+
+
+
 	// set_post_thumbnail_size(150, 150, false);
 	
 	// rss thingy
@@ -141,7 +145,13 @@ function reverie_entry_meta_front() {
 
 //CUSTOMS
 
-//add login message filter
+// quick fix to give W3 Validator one less WordPress quirk to pickup on - http://www.whitneykrape.com/2011/07/quick-fix-for-relcategory-tag-in-wordpress/
+add_filter( 'the_category', 'add_nofollow_cat' );  function add_nofollow_cat( $text ) { $text = str_replace('rel="category tag"', "", $text); return $text; }
+
+// disable "Guest Author" function from Plugin Co-Authors Plus 
+add_filter( 'coauthors_guest_authors_enabled', '__return_false' );
+
+// add login message filter
 add_filter ( 'login_message', 'custom_login_message' );
 function custom_login_message() {
 $message = "   Willkommen, bitte melden sie sich hier an.";

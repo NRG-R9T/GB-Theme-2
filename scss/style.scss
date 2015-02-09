@@ -15,15 +15,28 @@
 // Comment out this import if you are customizing you imports below
 @import "foundation";
 
-/* Start to customize Reverie */
 
+
+/* Viewport for IE10 and W3C seen in: http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag/ */
+
+@-ms-viewport{
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+/* Start to customize Reverie */
 .top-bar {
-font-family: 'Orbitron', sans-serif;
+font-family: 'lato', sans-serif;
 }
 
 .breadcrumbs {
-font-family: 'Orbitron', sans-serif;
+	font-family: 'lato', sans-serif;
 }
+
 .contain-to-grid {
 	width: 100%;
 	background: none;
@@ -38,14 +51,39 @@ font-family: 'Orbitron', sans-serif;
 	height: 2.79em;
 }
 
-a { color: #000; font-weight:bold; text-decoration: none; line-height: inherit; }
-a:hover { color: #555; font-weight:bold; text-decoration:underline }
-a:focus { color: #555; font-weight:bold; outline: none; }
+a { color: #000; text-decoration:none; line-height: inherit; }
+a:hover { color: #555; text-decoration:underline }
+a:focus { color: #555; outline: none; }
+h1 a { color: #000; text-decoration: none; line-height: inherit; } /* Frontpage (content.php) Title Old*/
+h2 span a { font-size: 2.75rem; color: #000; text-decoration: none; line-height: initial; } /* Frontpage (content.php) Title SEO */
 
+/* orbit customs */
 
+.orbit-caption h2 {
+	color: #BEFB03;
+}
 
-h3 { 
-	font-family: 'Oswald', sans-serif; 
+.orbit-caption h3 {
+	color: #BEFB03;
+}
+
+.orbit-caption h4 {
+	color: #BEFB03;
+}
+
+.orbit-caption {
+	font-family: 'lato', sans-serif;
+	font-weight: bold;
+	width: 65%;
+}
+
+.slider-one .bx-wrapper .bx-viewport{
+    background: #767676;
+}
+
+/* Diverse */
+ul {
+margin-left: 1rem;
 }
 
 aside#sidebar {
@@ -88,6 +126,7 @@ color: black;
 color: #555;
 }
 
+/*Footer*/
 
 ul.mobile-nav li a {
     display: block;
@@ -99,7 +138,7 @@ ul.mobile-nav li a {
 }
 
 .gb-footer-top {
-	font-family: Arial;
+	font-family: 'lato', sans-serif;
 	font-size: 0.9em;
 	line-height: 21px;
 	color: black;
@@ -113,6 +152,10 @@ ul.mobile-nav li a {
 
 .large-6.columns.social {
 color: $color4
+}
+
+.sub-nav li {
+font-family: 'lato', sans-serif;
 }
 
 .cc-logo {
@@ -131,22 +174,159 @@ footer.large-12.columns {
 	background: $color13;
 }
 
+/*Ads*/
+
+.racker-logo {
+padding: 1em;
+text-align: center;
+}
+
 .adwrapper {
 margin-bottom: 0.25em;
+font-family: 'lato', sans-serif;
+font-weight: 300;
 }
 
 .Anzeige {
-font-family: 'Orbitron', sans-serif;
-font-weight: bold;
 display: inline-block;
 margin: 1em 0;
 }
 
-.wmuns {
-display: inline-block;
-margin: 1em 0 .75em 6.5em;
+.rectangle {
+padding-bottom: 3em;
 }
 
+.wmuns {
+display: inline-block;
+margin: 1em 0 .75em 3em;
+}
+
+/*Kommentare*/
+#social {
+background: #D6D6D6 !important;
+}
+
+/*Slidedeck*/
+
+@media only screen and (max-width: 910px) {
+#slidedeck2_widget-3 {
+display: none !important;
+}
+}
+
+@media only screen and (max-width: 760px) {
+#slidedeck2_widget-4,
+#slidedeck2_widget-3 {
+display: none !important;
+}
+}
+
+/*IE8 fix: Topbar & grid*/
+.lt-ie9 .top-bar {
+  background: #2f2f2f;
+  *zoom: 1;
+  overflow: visible; 
+}
+.lt-ie9 .top-bar:before, .lt-ie9 .top-bar:after {
+  content: " ";
+  display: table; 
+}
+.lt-ie9 .top-bar:after { clear: both; }
+.lt-ie9 .top-bar .toggle-topbar { display: none; }
+.lt-ie9 .top-bar .title-area { float: left; }
+.lt-ie9 .top-bar .name h1 a { width: auto; }
+.lt-ie9 .top-bar input,
+.lt-ie9 .top-bar .button {
+  line-height: 2em;
+  font-size: 0.875em;
+  height: 2em;
+  padding: 0 10px;
+  position: relative;
+  top: 8px; 
+}
+.lt-ie9 .top-bar.expanded { background: #111111; }
+.lt-ie9 .contain-to-grid .top-bar {
+  max-width: 57.5em;
+  margin: 0 auto; 
+}
+.lt-ie9 .top-bar-section {
+  -webkit-transition: none 0 0;
+  -moz-transition: none 0 0;
+  transition: none 0 0;
+  left: 0 !important; 
+}
+.lt-ie9 .top-bar-section ul {
+  width: auto;
+  height: auto !important;
+  display: inline; 
+}
+.lt-ie9 .top-bar-section ul li { float: left; }
+.lt-ie9 .top-bar-section ul li > a { padding-right: 14px !important; }
+.lt-ie9 .top-bar-section ul li .js-generated { display: none; }
+.lt-ie9 .top-bar-section li a:not(.button) {
+  padding: 0 15px;
+  line-height: 45px;
+  background: #111111; 
+}
+.lt-ie9 .top-bar-section li a:not(.button):hover { background: #2b2b2b; }
+.lt-ie9 .top-bar-section .has-dropdown > a { padding-right: 35px !important; }
+.lt-ie9 .top-bar-section .has-dropdown > a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 5px;
+  border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+  margin-top: -2.5px; 
+}
+.lt-ie9 .top-bar-section .has-dropdown.moved { position: relative; }
+.lt-ie9 .top-bar-section .has-dropdown.moved > .dropdown { visibility: hidden; }
+.lt-ie9 .top-bar-section .has-dropdown:hover > .dropdown, 
+.lt-ie9 .top-bar-section .has-dropdown:active > .dropdown { visibility: visible; }
+.lt-ie9 .top-bar-section .has-dropdown .dropdown li.has-dropdown > a:after {
+  border: none;
+  content: "\00bb";
+  margin-top: -7px;
+  right: 5px; 
+}
+.lt-ie9 .top-bar-section .dropdown {
+  left: 0;
+  top: auto;
+  background: transparent; 
+}
+.lt-ie9 .top-bar-section .dropdown li a {
+  line-height: 1;
+  white-space: nowrap;
+  padding: 7px 15px;
+  background: #1e1e1e; 
+}
+.lt-ie9 .top-bar-section .dropdown li label {
+  white-space: nowrap;
+  background: #1e1e1e; 
+}
+.lt-ie9 .top-bar-section .dropdown li .dropdown {
+  left: 100%;
+  top: 0; 
+}
+.lt-ie9 .top-bar-section > ul > .divider {
+  border-bottom: none;
+  border-top: none;
+  border-right: solid 1px #2b2b2b;
+  border-left: solid 1px black;
+  clear: none;
+  height: 45px;
+  width: 0px; 
+}
+.lt-ie9 .top-bar-section .has-form {
+  background: #111111;
+  padding: 0 15px;
+  height: 45px; 
+}
+.lt-ie9 .top-bar-section ul.right li .dropdown {
+  left: auto;
+  right: 0; 
+}
+.lt-ie9 .top-bar-section ul.right li .dropdown li .dropdown { right: 100%; }
 
 
 // adjusting header

@@ -1,7 +1,5 @@
 <!doctype html>
-	<html itemscope 
-	itemtype="http://schema.org/NewsArticle" 
-	itemid="<?php the_permalink() ?>">
+
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" <?php language_attributes(); ?> > <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" <?php language_attributes(); ?> > <![endif]-->
@@ -14,23 +12,23 @@
 <head>
 <?php remove_custom_background() ?>
 	
-	<link rel="dns-prefetch" href="//zedo.com">
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//doubleclick.net">
-	<link rel="dns-prefetch" href="//google-analytics.com/">
-	<link rel="dns-prefetch" href="//www.slidedeck.com">
-
-
 	<meta charset="<?php bloginfo('charset'); ?>">
 
 	<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
 
-	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
-	<meta name="viewport" content="width=device-width" />
+	<!-- Mobile viewport optimized: j.mp/mobileviewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Favicon and Feed -->
 	<link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
+	
+	<link rel="alternate" type="application/rss+xml" title="Greenbyte.ch Feed" href="http://greenbyte.ch/feed/">
+	
+	<link rel="alternate" type="application/rss+xml" title="Greenbyte.ch RSS 2.0 feed" href="http://greenbyte.ch/feed/" />
+	<link rel="alternate" type="application/atom+xml" title="Greenbyte.ch Atom feed" href="http://greenbyte.ch/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Greenbyte.ch RDF/RSS 1.0 feed" href="http://greenbyte.ch/feed/rdf/" />
+	<link rel="alternate" type="application/rss+xml" title="Greenbyte.ch RSS 0.92 feed" href="http://greenbyte.ch/feed/rss/" />
+
 
 	<!--  iPhone Web App Home Screen Icon -->
 	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-icon-ipad.png" />
@@ -48,40 +46,15 @@
 	<!-- Startup Image iPhone (320x460) -->
 	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load.png" media="screen and (max-device-width: 320px)" />
 
-<?php wp_head(); ?>
+<!-- Google Web Fonts Collection - http://www.google.com/fonts#UsePlace:use/Collection:Lato:300|Merriweather -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300|Merriweather" media="screen">
+<link rel="stylesheet" type="text/css" href="get_template_directory_uri(); ?>/css/style.css" media="screen">
 
 <!-- Enable G+ -->
 <?php
 if (!is_singular()) {
     echo '<link rel="publisher" href="https://plus.google.com/u/0/103478563688345350335/" />';
 } ?>
-
-<!-- Enable GA -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23288080-1']);
-  _gaq.push(['gat._anonymizeIp'],['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-<script type="text/javascript">
-function trackOutboundLink(link, category, action) { 
- 
-try { 
-_gaq.push(['_trackEvent', category , action]); 
-} catch(err){}
- 
-setTimeout(function() {
-document.location.href = link.href;
-}, 100);
-}
-</script>
 
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
 
@@ -112,6 +85,10 @@ googletag.enableServices();
 </script>
 
 </head>
+
+<?php wp_head(); ?>
+
+<?php flush(); ?>
 
 <body <?php body_class(); ?>>
 
@@ -157,16 +134,22 @@ googletag.enableServices();
 
 
 <div class="row" role="slider">
+	<div class="slider-one">
+    <ul class="bxslider"></ul>
 		<div> <?php if (is_home() || is_category() || is_front_page()) {
-			echo do_shortcode( "[SlideDeck2 id=10605 ress=1]" );
+			if( function_exists('bxslider') ) bxslider('features'); 
 		}?> 
-		</div>	
+		</div>
+	</div>		
 </div>
 
 <div class="row" role="banner">
+	<div class="small-12 columns">
 		<?php /* Widgetized header */
 			if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Header') ) : ?><?php endif; ?>
+	</div>
 </div>
+
 
 
 

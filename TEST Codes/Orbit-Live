@@ -1,0 +1,41 @@
+<div class="slideshow-wrapper">
+  <div class="preloader"></div>
+  <ul class="feature-slider" data-orbit data-options="animation:slide;
+                    timer_speed: 15000;
+                    animation_speed:800;
+                    pause_on_hover:true;
+                    slide_number: false;
+                    navigation_arrows:true;
+                    bullets:false;
+                    next_on_click:false;">
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2013/11/Bolo-Museum-als-Ruhest%C3%A4tte-f%C3%BCr-ausgediente-Computer.jpg" alt="slide 1" />
+      <div class="orbit-caption">
+        <h2>Bolo-Museum: Gedächtnis der Computer-Technologie</h2>
+        Die Ausstellung «Programmiertes Verschwinden» im Bolo-Museum besitzt eine soeben von IBM gestiftete, funktionstüchtige Blue Gene/P des «Human Brain Project».
+      </div>
+    </li>
+    <li>
+      <img src="http://greenbyte.ch/wp-content/uploads/2013/11/Smart_Grids_by_EU.jpg" alt="slide 2" />
+      <div class="orbit-caption">
+        <h2>Geschäftsmodell für Smart Grids</h2>
+        Im Forschungsprojekt «Biz Grid» von Swisselectric Research wurde die Wirtschaftlichkeit von intelligenten Stromverteilnetzen untersucht.
+      </div>
+    </li>
+    <li>
+      <a href="http://greenbyte.ch/" title="" rel=""><img src="http://greenbyte.ch/wp-content/uploads/2013/10/VMware-2013-Showfloor-zoom.jpg" alt="slide 3" ></a>
+       <div class="orbit-caption">
+        <h2>Kommentar: Druck der Konkurrenz fordert VMware mehr den je</h2>
+        Die Keynote des CEO ist 2013 weniger von Visionen geprägt als unter Paul Maritz. Pat Gelsinger ist klarer. Dies braucht VMware, um gegen Microsoft und Openstack zu bestehen.
+      </div>
+    </li>
+    <li>
+      <a href="http://greenbyte.ch/" title="" rel=""><img src="https://lh5.googleusercontent.com/-XLXN9CF8_Os/Upx2Gwpg8eI/AAAAAAAAEn4/HRiIlfz4vLY/w927-h576-no/ISS1.jpg" alt="slide 4" ></a>
+http://greenbyte.ch/wp-content/themes/GB-Theme-2
+      <div class="orbit-caption">
+        <h2>Kühlen mit heissem Wasser – eine Schweizer Erfindung</h2>
+        Physik erklärt uns Dinge, die gegen den gesunden Menschenverstand verstossen. Ein Beispiel ist, Computer mit heissem Wasser zu kühlen. Das erste Grossprojekt mit der Schweizer Erfindung hätte fast in Zürich gestanden.
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,41 @@
+<!-- Orbit Container -->
+<div class="row" role="slider">
+  <div class="small-12 small-centered columns">
+    <div class="slideshow-wrapper">
+        <ul class="feature-slider" data-orbit data-options="animation:slide;
+                        timer_speed: 15000;
+                        animation_speed:800;
+                        pause_on_hover:true;
+                        slide_number: false;
+                        navigation_arrows:true;
+                        bullets:false;
+                        next_on_click:false;">
+        <li>
+          <img src="http://greenbyte.ch/wp-content/uploads/2015/02/synapse_mobile_apples-SL.jpg" alt="slide 1" />
+          <div class="orbit-caption">
+            <h2>Was hat der Computer, das der Mensch nicht hat?</h2>
+            <div class="show-for-medium-up">Seitdem Maschinen uns Menschen in zahlreichen Bereichen überlegen sind, kann man sich die Frage stellen, wohin das alles führen soll. Am Ittinger Mediengesprächs 2014 von IBM war die Künstliche Intelligenz (AI) im Fokus.
+            </div>
+          </div>
+        </li>
+        <li>
+          <img src="http://greenbyte.ch/wp-content/uploads/2015/02/Das-Landauer-Prinzip-sl.jpg" alt="slide 2" />
+          <div class="orbit-caption">
+            <h2>Landauers Geheimnis stromloser Computer</h2>
+           <div class="show-for-medium-up">Umweltbewusste Mitmenschen üben Fundamentalkritik an der Informationsgesellschaft gegen den gewaltigen Energie-Verbrauch. Es gibt zu viel Ressourcen-Verschwendung.
+           </div>
+          </div>
+        </li>
+        <li>
+          <img src="http://greenbyte.ch/wp-content/uploads/2015/02/Smart_Grids_by_EU-sl.jpg" alt="slide 3" />
+          <div class="orbit-caption">
+            <h2>Geschäftsmodell für Smart Grids</h2>
+            <div class="show-for-medium-up">Im Forschungsprojekt «Biz Grid» von Swisselectric Research wurde die Wirtschaftlichkeit von intelligenten Stromverteilnetzen untersucht.
+            </div>
+          </div>
+        </li>
+      </ul>
+    <div>
+  <div>
+<div>
+

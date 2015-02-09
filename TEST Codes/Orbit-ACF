@@ -1,0 +1,40 @@
+<div>
+<?php
+//Set up some variables containing the URL of each image
+ 
+//In Advanced Custom Fields, these are image fields that output "Image ID"
+//I also have set up a custom image size in Wordpress called "home-slider-size" in this case
+ 
+$image1 = wp_get_attachment_image_src( get_field('Image1'), 'orbit-slider-size' );
+$image2 = wp_get_attachment_image_src( get_field('Image2'), 'orbit-slider-size' );
+$image3 = wp_get_attachment_image_src( get_field('Image3'), 'orbit-slider-size' );
+$image4 = wp_get_attachment_image_src( get_field('Image4'), 'orbit-slider-size' );
+$image5 = wp_get_attachment_image_src( get_field('Image5'), 'orbit-slider-size' );
+?>
+<?php //let's start the slider here. The first field is mandatory: ?>
+<ul data-orbit>
+  <li>
+    <img src="<?php echo $image1[0]; ?>" />
+  </li>
+  <?php if(get_field('slider_2')) { // subsequent fields are not mandatory ?>
+  <li>
+    <img src="<?php echo $image2[0]; ?>" />
+  </li>
+  <?php } ?>
+  <?php if(get_field('slider_3')) { ?>
+  <li>
+    <img src="<?php echo $image3[0]; ?>" />
+  </li>
+  <?php } ?>
+  <?php if(get_field('slider_4')) { ?>
+  <li>
+    <img src="<?php echo $image4[0]; ?>" />
+  </li>
+  <?php } ?>
+  <?php if(get_field('slider_5')) { ?>
+  <li>
+    <img src="<?php echo $image5[0]; ?>" />
+  </li>
+  <?php } ?>
+</ul>
+</div>

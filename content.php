@@ -9,7 +9,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header>
-		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<h2><span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span></h2>
 		<?php reverie_entry_meta_front(); ?>
 	</header>
 	<div>
